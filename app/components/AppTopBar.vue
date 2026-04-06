@@ -157,7 +157,6 @@ function toggleTheme() {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--color-bg);
 }
 
 .top-bar__inner {
