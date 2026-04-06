@@ -1,0 +1,116 @@
+/* Design tokens — light (default) */
+:root {
+  --color-main: #222222;
+  --color-bg: #ffffff;
+  --color-surface: #f7f7f7;
+  --color-border: #e0e0e0;
+
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --font-body: 14px;
+  --font-ui: 16px;
+  --font-title-lg: 64px;
+
+  --weight-medium: 500;
+
+  --space-mobile-margin: 32px;
+  --space-desktop-margin: 120px;
+  --grid-gutter: 32px;
+  --grid-columns: 12;
+
+  --breakpoint-desktop: 1024px;
+
+  --nav-gap: 40px;
+  --nav-underline: 2px;
+}
+
+html.dark {
+  --color-main: #f0f0f0;
+  --color-bg: #121212;
+  --color-surface: #1a1a1a;
+  --color-border: #2a2a2a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-body);
+  font-weight: var(--weight-medium);
+  line-height: 1.5;
+  color: var(--color-main);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.text-ui {
+  font-size: var(--font-ui);
+}
+
+.title-lg {
+  font-family: var(--font-mono);
+  font-size: clamp(2.5rem, 8vw, var(--font-title-lg));
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* Horizontal page margins */
+.page-shell {
+  padding-left: var(--space-mobile-margin);
+  padding-right: var(--space-mobile-margin);
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .page-shell {
+    padding-left: var(--space-desktop-margin);
+    padding-right: var(--space-desktop-margin);
+  }
+}
+
+/* 12-column grid, 32px gutter */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--grid-gutter);
+  width: 100%;
+}
+
+@media (max-width: 1023px) {
+  .grid-12 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Span helpers (desktop); mobile stacks to one column */
+@media (min-width: 1024px) {
+  .span-12 {
+    grid-column: span 12;
+  }
+  .span-6 {
+    grid-column: span 6;
+  }
+  .span-4 {
+    grid-column: span 4;
+  }
+}
