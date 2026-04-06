@@ -42,8 +42,10 @@ function syncUnderline() {
     }
     const nr = nav.getBoundingClientRect()
     const er = el.getBoundingClientRect()
-    underline.left = er.left - nr.left
-    underline.width = er.width
+    const extra = 12
+    const halfExtra = extra / 2
+    underline.width = er.width + extra
+    underline.left = er.left - nr.left - halfExtra
     underline.visible = true
   })
 }
@@ -156,7 +158,6 @@ function toggleTheme() {
   top: 0;
   z-index: 50;
   background: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
 }
 
 .top-bar__inner {
@@ -194,7 +195,7 @@ function toggleTheme() {
   display: flex;
   align-items: center;
   gap: var(--nav-gap);
-  padding-bottom: 10px;
+  padding-bottom: 4;
 }
 
 .nav__item-wrap {
